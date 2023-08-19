@@ -4,6 +4,7 @@ import {BiUserCircle} from "react-icons/bi"
 
 
 const Header = () => {
+
   return (
     <header className="w-screen z-60 p-6 px-16">
       {/* for tablet and desktop */}
@@ -20,7 +21,7 @@ const Header = () => {
             <li className="text-lg text-orange-500 underline hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
               Home
             </li>
-            <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer" >
               Menu
             </li>
             <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
