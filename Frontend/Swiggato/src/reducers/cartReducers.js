@@ -1,5 +1,12 @@
-export const cartReducer = (state = { cartItems: [] }, action) => {
+const cartItems = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
 
+const initialState = {
+  cartItems: cartItems,
+};
+
+export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       const alreadyExist = state.cartItems.find(
@@ -18,7 +25,6 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [...state.cartItems, action.payload],
         };
       }
-
     default:
       return state;
   }
