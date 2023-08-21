@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Food from "../components/Food";
 import { getAllFoods } from "../actions/foodActions";
 
-const Menu = () => {
+const MenuScreen = () => {
   const dispatch = useDispatch();
 
   const foodsState = useSelector((state) => state.getAllFoodReducer);
@@ -24,8 +24,8 @@ const Menu = () => {
       ) : (
         foods.map((foodData) => {
           return (
-            <div>
-              <Food foodData={foodData} />
+            <div key={foodData._id}>
+              <Food foodData={foodData}/>
               {/* {JSON.stringify(foodData.name)} */}
             </div>
           );
@@ -35,4 +35,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default MenuScreen;

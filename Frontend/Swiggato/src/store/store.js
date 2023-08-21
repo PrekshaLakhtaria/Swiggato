@@ -9,12 +9,20 @@ import thunk from 'redux-thunk'
 // import {composeWithDevTools} from '@redux-devtools/extension'
 
 import { getAllFoodReducer } from '../reducers/foodReducers'
+import { cartReducer } from '../reducers/cartReducers'
 
 const finalReducer = combineReducers({
-    getAllFoodReducer : getAllFoodReducer
+    getAllFoodReducer : getAllFoodReducer,
+    cartReducer : cartReducer
 })
 
-const initialState = {}
+const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+
+const initialState = {
+    cartReducer : {
+        cartItems : cartItems
+    }
+}
 
 // const composeEnhancers = composeWithDevTools({})
 

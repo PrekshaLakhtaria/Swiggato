@@ -2,8 +2,12 @@ import React from "react";
 import { MdShoppingBasket} from "react-icons/md";
 import {BiUserCircle} from "react-icons/bi"
 
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Header = () => {
+
+  const cartstate = useSelector(state=>state.cartReducer)
 
   return (
     <header className="w-screen z-60 p-6 px-16">
@@ -18,21 +22,23 @@ const Header = () => {
 
         <div className="flex items-center gap-8">
           <ul className="flex items-center gap-8">
-            <li className="text-lg text-orange-500 underline hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
-              Home
-            </li>
-            <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer" >
-              Menu
+            <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
+            <a href="/">Home</a>
             </li>
             <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
-              About Us
+              <a href="/menu">Menu</a>
+            </li>
+            <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
+            <a href="/menu">About Us</a>
             </li>
           </ul>
 
           <div className="relative flex items-center justify-center">
-            <MdShoppingBasket className="text-2xl text-gray-600 cursor-pointer" />
+            <a href="/cart">
+            <MdShoppingBasket className="text-2xl text-gray-600 cursor-pointer"/>
+            </a>
             <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
-              <p className="text-xs font-semibold">2</p>
+              <p className="text-xs font-semibold">{cartstate.cartItems.length}</p>
             </div>
           </div>
 
