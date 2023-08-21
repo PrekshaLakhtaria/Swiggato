@@ -11,16 +11,18 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        <Header key="1" />
+        
+      <Header key="1" />
         <BrowserRouter>
-          {/* <HomePage key="2"/>  */}
-          {/* <Menu key="3"/> */}
+        
           <Routes>
-            <Route path="/" element={<HomePage/>} />
+            <Route path="/" exact={true} element={<HomePage/>} />
             <Route path="/menu" element={<MenuScreen/>} />
             <Route path="/cart" element={<CartScreen/>} />
           </Routes>
+          
         </BrowserRouter>
+        
         <Footer key="4" />
       </AnimatePresence>
     </>

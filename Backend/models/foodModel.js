@@ -5,7 +5,8 @@ const foodDataSchema = mongoose.Schema({
     category : {type: String, require},
     img : {type: String, require},
     rating : {type: Number, require},
-    price : {type: Number, require}
+    price : {type: Number, require},
+    quantity : {type: Number, require}
 },{
     timestamps : true,
 })

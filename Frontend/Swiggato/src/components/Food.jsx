@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
@@ -6,9 +6,13 @@ import { addToCart } from '../actions/cartActions';
 const Food = ({foodData}) => {
 
 const dispatch = useDispatch()
+const [quantity, setQuantity] = useState(1)
     
     function addtocart(){
-        dispatch(addToCart(foodData))
+        setQuantity(foodData.quantity=quantity+1)
+        console.log("quantity : "+ quantity);
+        
+        dispatch(addToCart(foodData, quantity))
     }
 
 

@@ -18,11 +18,14 @@ const finalReducer = combineReducers({
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 
+console.log("cart store "+cartItems[0]);
+
 const initialState = {
     cartReducer : {
         cartItems : cartItems
     }
 }
+console.log("initial state:"+initialState);
 
 // const composeEnhancers = composeWithDevTools({})
 

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
 
   const cartstate = useSelector(state=>state.cartReducer)
+  console.log("length : " +cartstate.cartItems.length);
 
   return (
     <header className="w-screen z-60 p-6 px-16">
