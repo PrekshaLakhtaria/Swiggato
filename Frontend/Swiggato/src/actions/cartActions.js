@@ -1,25 +1,35 @@
-export const addToCart = (food,quantity) => (dispatch, getState)=>{
+export const addToCart = (food, quantity) => (dispatch, getState) => {
+  var cartItem = {
+    _id: food._id,
+    name: food.name,
+    category: food.category,
+    img: food.img,
+    price: food.price,
+    quantity: quantity,
+    subtotalprice: Number((food.price * quantity).toFixed(2)),
+  };
 
+  if (cartItem.quantity > 10) {
+    alert("You cannot add more than 10 quantities!!");
+  } else {
+    if (cartItem.quantity < 0) {
+      dispatch({ type: "DELETE_FROM_CART", payload: food });
+    } else {
+      dispatch({ type: "ADD_TO_CART", payload: cartItem });
+    }
+  }
 
-    var cartItem = {
-        _id : food._id,
-        name : food.name,
-        category : food.category,
-        img : food.img,
-        price : food.price,
-        quanity : quantity,
-        subtotalprice : food.price * quantity
-        
-    }    
+  const cartItems = getState().cartReducer.cartItems;
 
-    console.log("cartAction : "+cartItem);
+  console.log("items :", cartItems);
 
-    dispatch({type:"ADD_TO_CART", payload:cartItem})
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
 
-    const cartItems = getState().cartReducer.cartItems
+export const deletFromCart = (food) => (dispatch, getState) => {
+  dispatch({ type: "DELETE_FROM_CART", payload: food });
 
-    console.log("items :"+cartItems);
+  const cartItems = getState().cartReducer.cartItems;
 
-    localStorage.setItem('cartItems', JSON.stringify(cartItems))
-
-}
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};

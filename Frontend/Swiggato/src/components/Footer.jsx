@@ -1,11 +1,11 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
     <div>
-      {/* Footer */}
-      <footer className="bg-[#f9f6ec]">
+      {/* <footer className="bg-[#f9f6ec]"> */}
+      <footer className="bg-orange-50">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="lg:flex lg:items-start lg:gap-8">
             <div className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
@@ -29,16 +29,16 @@ const Footer = () => {
                     Email{" "}
                   </label>
 
-                  <div className="border border-gray-300 rounded-3xl p-2 focus-within:ring sm:flex sm:items-center sm:gap-4">
+                  <div className="border border-gray-300 rounded-3xl p-2 sm:flex sm:items-center sm:gap-4">
                     <input
                       type="email"
                       id="UserEmail"
                       placeholder="abc@abc.com"
-                      className="w-full bg-[#f9f6ec] border:none rounded-3xl sm:text-sm"
+                      className="w-full bg-orange-50 border:none rounded-3xl sm:text-sm"
                     />
 
                     <motion.button
-                      whileTap={{ scale: 0.8 }}
+                      whileTap={{ scale: 0.9 }}
                       className="mt-1 w-full bg-orange-500 rounded-2xl px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none sm:mt-0 sm:w-auto sm:shrink-0"
                     >
                       Send
@@ -355,7 +355,7 @@ const Footer = () => {
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

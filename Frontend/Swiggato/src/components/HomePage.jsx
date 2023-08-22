@@ -20,7 +20,7 @@ const HomePage = () => {
                 Let start to order food now!
               </p>
               <motion.button
-                whileTap={{ scale: 0.8 }}
+                whileTap={{ scale: 0.9 }}
                 className="relative top-10 text-xl border-2 border-orange-500 rounded-3xl p-4"
               >
                 CHECKOUT MENU
@@ -80,8 +80,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-      
     </>
   );
 };

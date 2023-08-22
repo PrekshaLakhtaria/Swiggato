@@ -1,35 +1,20 @@
-const express = require("express")
+const express = require("express");
+const foodData = require("./models/foodModel");
 
-const foodData = require('./models/foodModel')
+const db = require("./db.js");
 
-const db = require('./db.js')
+const app = express();
 
-const app = express()
+const foodRoute = require("../Backend/routes/foodRoute");
+const userRoute = require("../Backend/routes/userRoute");
 
-const foodRoute = require('../Backend/routes/foodRoute')
+app.use("/api/foods/", foodRoute);
+app.use("/api/users/", userRoute);
 
-app.use('/api/foods', foodRoute)
-
-
-
-app.get('/',(req,res)=>{
-    res.send("Server is working"+port)
-})
-
-// app.get("/getfoods", async (req, res) => {
-//     try {
-//       const docs = await foodData.find();
-//       console.log(docs);
-//       res.send(docs);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   });
-
+app.get("/", (req, res) => {
+  res.send("Server is working" + port);
+});
 
 const port = process.env.PORT || 5000;
 
-
-
-app.listen(port, () => 
-console.log('server litening'))
+app.listen(port, () => console.log("server litening"));
