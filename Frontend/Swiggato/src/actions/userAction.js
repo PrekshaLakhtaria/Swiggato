@@ -6,7 +6,7 @@ export const registerUser = (user) => async (dispatch) => {
   try {
     const response = await axios.post(
       `http://localhost:5000/api/users/register`,
-      user
+      { user }
     );
     console.log("REquest action ..........", response);
     dispatch({ type: "USER_REGISTER_SUCCESS" });
