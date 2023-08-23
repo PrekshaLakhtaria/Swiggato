@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../actions/userAction";
+import Loading from "../components/Loading";
+import Sucess from "../components/Sucess";
+import Error from "../components/Error";
 
 const RegisterScreen = () => {
   const [username, setUsername] = useState("");
@@ -11,6 +14,10 @@ const RegisterScreen = () => {
   const [confirmpassword, setConfirmpassword] = useState("");
 
   const [error, setError] = useState(null);
+
+  const registerstate = useSelector((state) => state.registerUserReducer);
+
+  const { register_error, loading, success } = registerstate;
 
   const dispatch = useDispatch();
 
@@ -70,7 +77,11 @@ const RegisterScreen = () => {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 w-508">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold">Create your account</h1>
+              <h1 className="text-2xl font-semibold">Create your account</h1>{" "}
+              <br />
+              {loading && <Loading />}
+              {success && <Sucess success="User Registered Successfully" />}
+              {register_error && <Error error="Email already registered" />}
             </div>
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">

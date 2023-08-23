@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../actions/userAction";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const loginstate = useSelector((state) => state.loginUserReducer);
+
+  const { loading, error } = loginstate;
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("currentUser")) {
+      window.location.href = "/";
+    }
+  }, []);
 
   const login = () => {
     const user = { email, password };
@@ -22,6 +34,9 @@ const LoginScreen = () => {
           <div className="max-w-md mx-auto">
             <div>
               <h1 className="text-2xl font-semibold">Log in to your account</h1>
+              <br />
+              {loading && <Loading />}
+              {error && <Error error="Invalid Credentials" />}
             </div>
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">

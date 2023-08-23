@@ -23,7 +23,10 @@ const CartScreen = () => {
           <div className="rounded-lg md:w-2/3">
             {cartItems.map((item) => {
               return (
-                <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start drop-shadow-xl">
+                <div
+                  className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start drop-shadow-xl"
+                  key={item._id}
+                >
                   <img
                     src={item.img}
                     alt="product-image"

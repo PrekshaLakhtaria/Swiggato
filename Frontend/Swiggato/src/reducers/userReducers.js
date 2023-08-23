@@ -19,7 +19,15 @@ export const registerUserReducer = (state = {}, action) => {
   }
 };
 
-export const loginUserReducer = (state = {}, action) => {
+const currentUser = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : null;
+
+const initialState = {
+  currentUser: currentUser,
+};
+
+export const loginUserReducer = (state = initialState, action) => {
   switch (action.type) {
     case "USER_LOGIN_REQUEST":
       return {
