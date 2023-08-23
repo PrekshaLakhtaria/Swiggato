@@ -6,12 +6,27 @@ export const registerUser = (user) => async (dispatch) => {
   try {
     const response = await axios.post(
       `http://localhost:5000/api/users/register`,
-      { user }
+      user
     );
     console.log("REquest action ..........", response);
-    dispatch({ type: "USER_REGISTER_SUCCESS" });
+    dispatch({ type: "USER_REGISTER_SUCCESS" }, payload);
   } catch (error) {
     console.log("ERROR..............", error);
     dispatch({ type: "USER_REGISTER_FAILED", payload: error });
+  }
+};
+
+export const loginUser = (user) => async (dispatch) => {
+  dispatch({ type: "USER_LOGIN_REQUEST" });
+
+  try {
+    const response = await axios.post(
+      `http://localhost:5000/api/users/login`,
+      user
+    );
+    console.log("login response :::", response);
+    dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "USER_LOGIN_FAILED", payload: error });
   }
 };

@@ -5,12 +5,16 @@ import thunk from "redux-thunk";
 import { cartReducer } from "../reducers/cartReducers";
 // import {composeWithDevTools} from '@redux-devtools/extension'
 import { getAllFoodReducer } from "../reducers/foodReducers";
-import { registerUserReducer } from "../reducers/userReducers";
+import {
+  registerUserReducer,
+  loginUserReducer,
+} from "../reducers/userReducers";
 
 const finalReducer = combineReducers({
   getAllFoodReducer: getAllFoodReducer,
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
+  loginUserReducer: loginUserReducer,
 });
 
 // const composeEnhancers = composeWithDevTools({})
