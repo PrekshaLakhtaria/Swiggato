@@ -3,13 +3,18 @@ const router = express.Router();
 
 const User = require("../models/userModel");
 
-router.post("/register", (req, res) => {
+router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   const newUser = new User({ username, email, password });
   console.log("New user :", newUser);
   try {
-    newUser.save();
-    res.send("User registered successfully");
+    const user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: "user registration failed!!" });
+    } else {
+      newUser.save();
+      res.send("User registered successfully");
+    }
   } catch (error) {
     return res.status(400).json({ message: error });
   }

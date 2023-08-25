@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deletFromCart } from "../actions/cartActions";
 
+import Checkout from "../components/Checkout";
+
 const CartScreen = () => {
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
@@ -10,7 +12,7 @@ const CartScreen = () => {
     (x, item) => Number(Number(x + item.subtotalprice).toFixed(2)),
     0
   );
-  var deliveryfee = 5;
+  var deliveryfee = 5.0;
 
   const dispatch = useDispatch();
 
@@ -114,12 +116,15 @@ const CartScreen = () => {
               </p>
             </div>
           </div>
-          <motion.button
+
+          <Checkout total={subtotal + deliveryfee} />
+          {/* <motion.button
             whileTap={{ scale: 0.9 }}
             className="mt-6 w-full rounded-md bg-orange-500 py-1.5 font-medium text-blue-50 hover:bg-orange-600"
+            onClick={handlePayment}
           >
-            Check out
-          </motion.button>
+            Checkout
+          </motion.button> */}
         </div>
       </div>
     </div>

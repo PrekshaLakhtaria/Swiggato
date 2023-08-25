@@ -19,12 +19,14 @@ const HomePage = () => {
               <p className="relative top-6 text-xl">
                 Let start to order food now!
               </p>
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                className="relative top-10 text-xl border-2 border-orange-500 rounded-3xl p-4"
-              >
-                CHECKOUT MENU
-              </motion.button>
+              <a href="/menu">
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
+                  className="relative top-10 text-xl border-2 border-orange-500 rounded-3xl p-4"
+                >
+                  CHECKOUT MENU
+                </motion.button>
+              </a>
             </div>
           </div>
         </div>

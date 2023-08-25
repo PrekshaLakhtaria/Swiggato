@@ -1,4 +1,5 @@
 const express = require("express");
+
 const foodData = require("./models/foodModel");
 
 const cors = require("cors");
@@ -9,25 +10,15 @@ const app = express();
 
 const foodRoute = require("../Backend/routes/foodRoute");
 const userRoute = require("../Backend/routes/userRoute");
+const orderRoute = require("../Backend/routes/orderRoute");
 
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// app.options("*", cors());
-// app.use((req, res) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin,X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET,POST,PATCH,PUT,DELETE,OPTIONS"
-//   );
-// });
 
 app.use("/api/foods/", foodRoute);
 app.use("/api/users/", userRoute);
+app.use("/api/orders/", orderRoute);
 
 app.get("/", (req, res) => {
   res.send("Server is working" + port);

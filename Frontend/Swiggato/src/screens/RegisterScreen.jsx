@@ -13,11 +13,11 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
-  const [error, setError] = useState(null);
+  const [emailValidationError, setEmailValidationError] = useState(null);
 
   const registerstate = useSelector((state) => state.registerUserReducer);
 
-  const { register_error, loading, success } = registerstate;
+  const { error, loading, success } = registerstate;
 
   const dispatch = useDispatch();
 
@@ -25,9 +25,9 @@ const RegisterScreen = () => {
   const handleChange = (event) => {
     console.log(event);
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(event)) {
-      setError("Email is invalid");
+      setEmailValidationError("Email is invalid");
     } else {
-      setError(null);
+      setEmailValidationError(null);
     }
 
     setEmail(event);
@@ -81,7 +81,7 @@ const RegisterScreen = () => {
               <br />
               {loading && <Loading />}
               {success && <Sucess success="User Registered Successfully" />}
-              {register_error && <Error error="Email already registered" />}
+              {error && <Error error="Email already exist!!" />}
             </div>
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
@@ -121,7 +121,9 @@ const RegisterScreen = () => {
                       handleChange(e.target.value);
                     }}
                   />
-                  {error && <h2 style={{ color: "red" }}>{error}</h2>}
+                  {emailValidationError && (
+                    <h2 style={{ color: "red" }}>{emailValidationError}</h2>
+                  )}
                   <label
                     htmlFor="email"
                     className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"

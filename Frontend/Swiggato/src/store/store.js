@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { cartReducer } from "../reducers/cartReducers";
+import { placeOrderReducer } from "../reducers/orderReducers";
 // import {composeWithDevTools} from '@redux-devtools/extension'
 import { getAllFoodReducer } from "../reducers/foodReducers";
 import {
@@ -15,6 +16,7 @@ const finalReducer = combineReducers({
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
+  placeOrderReducer: placeOrderReducer,
 });
 
 // const composeEnhancers = composeWithDevTools({})
