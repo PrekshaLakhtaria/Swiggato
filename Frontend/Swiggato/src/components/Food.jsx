@@ -9,7 +9,7 @@ const Food = ({ foodData }) => {
 
   function addtocart() {
     setQuantity((foodData.quantity = quantity + 1));
-    console.log("quantity : ", quantity);
+    // console.log("quantity : ", quantity);
 
     dispatch(addToCart(foodData, quantity));
   }

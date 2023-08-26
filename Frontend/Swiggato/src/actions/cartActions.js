@@ -21,7 +21,7 @@ export const addToCart = (food, quantity) => (dispatch, getState) => {
 
   const cartItems = getState().cartReducer.cartItems;
 
-  console.log("items :", cartItems);
+  // console.log("items :", cartItems);
 
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };

@@ -10,10 +10,10 @@ export const placeOrder = (token, total) => async (dispatch, getState) => {
       { token, total, currentUser, cartItems }
     );
     dispatch({ type: "PLACE_ORDER_SUCCESS" });
-    console.log(response);
+    // console.log(response);
   } catch (error) {
     dispatch({ type: "PLACE_ORDER_FAILED" });
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -26,7 +26,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
       `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/orders/getuserorders`,
       { userid: currentUser._id }
     );
-    console.log(response);
+    // console.log(response);
     dispatch({ type: "GET_USER_ORDERS_SUCCESS", payload: response.data });
   } catch (error) {
     dispatch({ type: "GET_USER_ORDERS_FAILED", payload: error });

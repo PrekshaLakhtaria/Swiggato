@@ -18,7 +18,7 @@ export const OrderScreen = () => {
   //   });
   // });
 
-  console.log("subtotaal", subtotal1);
+  // console.log("subtotaal", subtotal1);
 
   useEffect(() => {
     dispatch(getUserOrders());

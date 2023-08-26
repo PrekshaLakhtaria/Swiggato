@@ -1,5 +1,5 @@
 export const placeOrderReducer = (state = {}, action) => {
-  console.log("Action payload-------------", action.payload);
+  // console.log("Action payload-------------", action.payload);
   switch (action.type) {
     case "PLACE_ORDER_REQUEST":
       return {

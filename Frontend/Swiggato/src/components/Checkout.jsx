@@ -10,14 +10,14 @@ import Error from "./Error";
 const Checkout = ({ total }) => {
   const orderstate = useSelector((state) => state.placeOrderReducer);
   const { loading, error, success } = orderstate;
-  console.log("Loading :", loading);
-  console.log("error :", error);
-  console.log("Success :", success);
+  // console.log("Loading :", loading);
+  // console.log("error :", error);
+  // console.log("Success :", success);
 
   const dispatch = useDispatch();
 
   const tokenHandler = (token) => {
-    console.log(token);
+    // console.log(token);
     dispatch(placeOrder(token, total));
   };
 

@@ -13,7 +13,7 @@ const CartScreen = () => {
     0
   );
 
-  console.log("Cart ITEMS ____________________", cartItems);
+  // console.log("Cart ITEMS ____________________", cartItems);
   var deliveryfee = 5.0;
 
   const userstate = useSelector((state) => state.loginUserReducer);

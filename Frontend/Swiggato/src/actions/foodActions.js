@@ -7,7 +7,7 @@ export const getAllFoods = () => async (dispatch) => {
     const response = await axios.get(
       `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/foods/getallfoods`
     );
-    console.log(response);
+    // console.log(response);
     dispatch({ type: "GET_FOODS_SUCCESS", payload: response.data });
   } catch (error) {
     dispatch({ type: "GET_FOODS_FAILED", payload: error });

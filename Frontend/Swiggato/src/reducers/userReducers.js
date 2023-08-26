@@ -1,5 +1,5 @@
 export const registerUserReducer = (state = {}, action) => {
-  console.log("Action payload-------------", action.payload);
+  // console.log("Action payload-------------", action.payload);
   switch (action.type) {
     case "USER_REGISTER_REQUEST":
       return {

@@ -8,10 +8,10 @@ export const registerUser = (user) => async (dispatch) => {
       `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/users/register`,
       user
     );
-    console.log("REquest action ..........", response);
+    // console.log("REquest action ..........", response);
     dispatch({ type: "USER_REGISTER_SUCCESS" });
   } catch (error) {
-    console.log("ERROR..............", error);
+    // console.log("ERROR..............", error);
     dispatch({ type: "USER_REGISTER_FAILED", payload: error });
   }
 };
@@ -24,7 +24,7 @@ export const loginUser = (user) => async (dispatch) => {
       `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/users/login`,
       user
     );
-    console.log("login response :::", response);
+    // console.log("login response :::", response);
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
     localStorage.setItem("currentUser", JSON.stringify(response.data));
     window.location.href = "/";

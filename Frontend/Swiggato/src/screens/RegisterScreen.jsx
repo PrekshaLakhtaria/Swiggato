@@ -23,7 +23,7 @@ const RegisterScreen = () => {
 
   //Email validation start
   const handleChange = (event) => {
-    console.log(event);
+    // console.log(event);
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(event)) {
       setEmailValidationError("Email is invalid");
     } else {
@@ -65,7 +65,7 @@ const RegisterScreen = () => {
         email,
         password,
       };
-      console.log(user);
+      // console.log(user);
       dispatch(registerUser(user));
     }
   };
