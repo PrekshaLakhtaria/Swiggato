@@ -201,7 +201,7 @@ const Footer = () => {
                   <a
                     href="/"
                     rel="noreferrer"
-                    target="_blank"
+                    target="_self"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     <span className="sr-only">Facebook</span>
@@ -225,7 +225,7 @@ const Footer = () => {
                   <a
                     href="/"
                     rel="noreferrer"
-                    target="_blank"
+                    target="_self"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     <span className="sr-only">Instagram</span>
@@ -249,7 +249,7 @@ const Footer = () => {
                   <a
                     href="/"
                     rel="noreferrer"
-                    target="_blank"
+                    target="_self"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     <span className="sr-only">Twitter</span>
@@ -267,9 +267,9 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="/"
+                    href="https://github.com/PrekshaLakhtaria"
                     rel="noreferrer"
-                    target="_blank"
+                    target="_self"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     <span className="sr-only">GitHub</span>
@@ -293,7 +293,7 @@ const Footer = () => {
                   <a
                     href="/"
                     rel="noreferrer"
-                    target="_blank"
+                    target="_self"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     <span className="sr-only">Dribbble</span>

@@ -1,17 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-var mongoURL = "mongodb+srv://prekshalakhtaria:preksha1508@cluster0.iblncej.mongodb.net/Swiggato"
+dotenv.config({ path: "./config/.env" });
 
-mongoose.connect(mongoURL,{useUnifiedTopology:true, useNewUrlParser:true})
+var mongoURL = process.env.MONGODB_URL;
 
-var db = mongoose.connection
+mongoose.connect(mongoURL, { useUnifiedTopology: true, useNewUrlParser: true });
 
-db.on('connected', ()=>{
-    console.log("Mongo db connection successfull");
-})
+var db = mongoose.connection;
 
-db.on('error', ()=>{
-    console.log("Mongodb connection failed");
-})
+db.on("connected", () => {
+  console.log("Mongo db connection successfull");
+});
 
-module.exports = mongoose
+db.on("error", () => {
+  console.log("Mongodb connection failed");
+});
+
+module.exports = mongoose;

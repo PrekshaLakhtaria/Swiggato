@@ -5,7 +5,7 @@ export const registerUser = (user) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      `http://localhost:5000/api/users/register`,
+      `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/users/register`,
       user
     );
     console.log("REquest action ..........", response);
@@ -21,7 +21,7 @@ export const loginUser = (user) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      `http://localhost:5000/api/users/login`,
+      `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/users/login`,
       user
     );
     console.log("login response :::", response);
@@ -35,5 +35,6 @@ export const loginUser = (user) => async (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
   localStorage.removeItem("currentUser");
+  localStorage.removeItem("cartItems");
   window.location.href = "/login";
 };

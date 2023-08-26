@@ -1,10 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import StripeCheckout from "react-stripe-checkout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { placeOrder } from "../actions/orderActions";
+import Loading from "./Loading";
+import Success from "./Success";
+import Error from "./Error";
 
 const Checkout = ({ total }) => {
+  const orderstate = useSelector((state) => state.placeOrderReducer);
+  const { loading, error, success } = orderstate;
+  console.log("Loading :", loading);
+  console.log("error :", error);
+  console.log("Success :", success);
+
   const dispatch = useDispatch();
 
   const tokenHandler = (token) => {
@@ -18,7 +27,7 @@ const Checkout = ({ total }) => {
         amount={total * 100}
         shippingAddress
         token={tokenHandler}
-        stripeKey="pk_test_51NiLNKSGlfDG9mkWCYCcZE8XsfUfi2N7BW97xaTEdtOd6wGxOmr4Fv77GeztpkgyCZuX52awSdGoF1Q8TVtTYlkO00KiYvioAj"
+        stripeKey={import.meta.env.VITE_APP_STRIPE_PUBLIC_KEY}
         currency="INR"
       >
         <motion.button
@@ -28,6 +37,11 @@ const Checkout = ({ total }) => {
           Check out
         </motion.button>
       </StripeCheckout>
+      <br />
+      <br />
+      {loading && <Loading />}
+      {error && <Error error="Something went wrong" />}
+      {success && <Success success="Your order placed successfully" />}
     </div>
   );
 };

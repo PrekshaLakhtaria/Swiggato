@@ -15,11 +15,11 @@ const Food = ({ foodData }) => {
   }
 
   return (
-    <div className="flex flex-row items-center justify-center flex-wrap gap-20">
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="flex flex-row items-center justify-center flex-wrap gap-20 drop-shadow-2xl">
+      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <img
-            className="p-8 rounded-t-lg h-[350px] w-[500px]"
+            className="p-8 rounded-t-lg h-[300px] w-[380px]"
             src={foodData.img}
             alt="product image"
           />
@@ -84,6 +84,7 @@ const Food = ({ foodData }) => {
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               ₹{foodData.price}
             </span>
+
             <motion.button
               whileTap={{ scale: 0.9 }}
               className="text-white bg-orange-500 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"

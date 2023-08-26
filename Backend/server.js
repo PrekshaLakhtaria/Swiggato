@@ -1,10 +1,12 @@
 const express = require("express");
 
-const foodData = require("./models/foodModel");
+const dotenv = require("dotenv");
 
 const cors = require("cors");
 
 const db = require("./db.js");
+
+dotenv.config({ path: "./config/.env" });
 
 const app = express();
 

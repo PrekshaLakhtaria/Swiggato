@@ -6,7 +6,7 @@ export const placeOrder = (token, total) => async (dispatch, getState) => {
   const cartItems = getState().cartReducer.cartItems;
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/orders/placeorder",
+      `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/orders/placeorder`,
       { token, total, currentUser, cartItems }
     );
     dispatch({ type: "PLACE_ORDER_SUCCESS" });
@@ -14,5 +14,21 @@ export const placeOrder = (token, total) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({ type: "PLACE_ORDER_FAILED" });
     console.log(error);
+  }
+};
+
+export const getUserOrders = () => async (dispatch, getState) => {
+  const currentUser = getState().loginUserReducer.currentUser;
+  dispatch({ type: "GET_USER_ORDERS_REQUEST" });
+
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_APP_SERVER_DOMAIN}/api/orders/getuserorders`,
+      { userid: currentUser._id }
+    );
+    console.log(response);
+    dispatch({ type: "GET_USER_ORDERS_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "GET_USER_ORDERS_FAILED", payload: error });
   }
 };

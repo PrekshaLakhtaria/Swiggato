@@ -12,14 +12,19 @@ const CartScreen = () => {
     (x, item) => Number(Number(x + item.subtotalprice).toFixed(2)),
     0
   );
+
+  console.log("Cart ITEMS ____________________", cartItems);
   var deliveryfee = 5.0;
+
+  const userstate = useSelector((state) => state.loginUserReducer);
+  const { userloading, currentUser, usersuccess } = userstate;
 
   const dispatch = useDispatch();
 
   return (
     <div className="aboslute top-10 ">
       <div className=" bg-gray-100 pt-20 bg-gradient-to-b from-white via-orange-200 to-white">
-        <h1 className=" mb-10 ml-96 text-2xl font-bold">Cart Items</h1>
+        {/* <h1 className=" mb-10 ml-96 text-2xl font-bold">Cart Items</h1> */}
 
         <div className=" mx-20 my-20 max-w-5xl px-6 md:flex md:space-x-6 xl:px-0 h-fit">
           <div className="rounded-lg md:w-2/3">
@@ -98,34 +103,59 @@ const CartScreen = () => {
           </div>
         </div>
 
-        <div className="relative bottom-[200px] left-[900px] h-[250px] mt-6 rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
-          <div className="mb-2 flex justify-between">
-            <p className="text-gray-700">Subtotal</p>
-            <p className="text-gray-700">₹{subtotal}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="text-gray-700">Delivery fee</p>
-            <p className="text-gray-700">₹{deliveryfee}</p>
-          </div>
-          <hr className="my-4" />
-          <div className="flex justify-between">
-            <p className="text-lg font-bold">Total</p>
-            <div className="">
-              <p className="mb-1 text-lg font-bold">
-                ₹{subtotal + deliveryfee}
-              </p>
+        {cartItems.length != 0 ? (
+          <div className="relative bottom-[200px] left-[900px] h-[300px] mt-6 rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+            <div className="mb-2 flex justify-between">
+              <p className="text-gray-700">Subtotal</p>
+              <p className="text-gray-700">₹{subtotal}</p>
             </div>
-          </div>
+            <div className="flex justify-between">
+              <p className="text-gray-700">Delivery fee</p>
+              <p className="text-gray-700">₹{deliveryfee}</p>
+            </div>
+            <hr className="my-4" />
+            <div className="flex justify-between">
+              <p className="text-lg font-bold">Total</p>
+              <div className="">
+                <p className="mb-1 text-lg font-bold">
+                  ₹{subtotal + deliveryfee}
+                </p>
+              </div>
+            </div>
 
-          <Checkout total={subtotal + deliveryfee} />
-          {/* <motion.button
+            {currentUser ? (
+              <Checkout total={subtotal + deliveryfee} />
+            ) : (
+              <p className="mt-12 text-center font-bold text-xl text-red-500">
+                Please Login to continue, Goto{" "}
+                <a href="/login" className="underline">
+                  Login
+                </a>
+              </p>
+            )}
+
+            {/* <motion.button
             whileTap={{ scale: 0.9 }}
             className="mt-6 w-full rounded-md bg-orange-500 py-1.5 font-medium text-blue-50 hover:bg-orange-600"
             onClick={handlePayment}
           >
             Checkout
           </motion.button> */}
-        </div>
+          </div>
+        ) : (
+          <div>
+            {" "}
+            <p className="flex justify-center items-center flex-col h-[700px] text-6xl -mt-96 ">
+              The cart is empty !!
+              <a
+                className="bg-orange-500 mt-10 text-2xl rounded-3xl p-5 text-white"
+                href="/menu"
+              >
+                Back to Menu
+              </a>
+            </p>{" "}
+          </div>
+        )}
       </div>
     </div>
   );

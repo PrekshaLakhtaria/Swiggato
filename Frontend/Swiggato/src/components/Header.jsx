@@ -39,7 +39,7 @@ const Header = () => {
               <a href="/menu">Food Menu</a>
             </li>
             <li className="text-lg text-gray-600 hover:text-orange-500 duration-100 transition-all ease-in-out cursor-pointer">
-              <a href="/menu">About Us</a>
+              <a href="/aboutus">About Us</a>
             </li>
           </ul>
 
@@ -62,7 +62,7 @@ const Header = () => {
               <div className="group relative cursor-pointer py-2">
                 <div className="flex items-center justify-between space-x-5 bg-white px-4">
                   <a className="menu-hover my-2 py-2 text-base font-medium text-orange-600 lg:mx-4 uppercase">
-                    {currentUser.username}
+                    Welcome, {currentUser.username}
                   </a>
                   <span>
                     <svg
@@ -82,7 +82,10 @@ const Header = () => {
                   </span>
                 </div>
                 <div className="invisible absolute z-50 flex w-full flex-col bg-orange-50 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                  <a className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-orange-500 md:mx-2">
+                  <a
+                    className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-orange-500 md:mx-2"
+                    href="/orders"
+                  >
                     Orders
                   </a>
 

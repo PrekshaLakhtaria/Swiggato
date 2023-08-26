@@ -36,9 +36,20 @@ const HomePage = () => {
       </div>
 
       {/* Services */}
-      <div className="flex flex-row items-center justify-center my-36 gap-20">
-        <div className="flex flex-col items-center justify-center max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <img src={service1} alt="Service1" />
+
+      <h1 className="mt-40 text-5xl text-orange-500 text-center underline underline-offset-8">
+        What we Serve?
+      </h1>
+      <div
+        className="flex flex-row items-center justify-center mb-40 mt-20 gap-20  text-justify bg-gradient-to-b from-white via-orange-100 to-white"
+        id="service"
+      >
+        <div className="flex flex-col items-center justify-center border-orange-500 max-w-sm bg-white border rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <img
+            src={service1}
+            alt="Service1"
+            className="h-[180px] w-[300px] my-1"
+          />
 
           <div className="p-5">
             <a href="#">
@@ -47,12 +58,12 @@ const HomePage = () => {
               </h5>
             </a>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Search your favourite foods through our menu.
+              Search your favourite foods. Browse our delicious menu
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="flex flex-col items-center justify-center max-w-sm bg-white border border-orange-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img src={service2} alt="Service2" />
           <div className="p-5">
             <a href="#">
@@ -67,7 +78,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="flex flex-col items-center justify-center max-w-sm bg-white border border-orange-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img src={service3} alt="Service3" />
           <div className="p-5">
             <a href="#">

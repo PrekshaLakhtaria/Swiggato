@@ -27,7 +27,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <div className="min-h-screen py-6 mt-20 mb-36 flex flex-col justify-center sm:py-12">
+    <div className="min-h-screen py-6 mt-20 mb-36 flex flex-col justify-center sm:py-12 bg-gradient-to-b from-white via-orange-100 to-white">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-300 to-orange-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 w-508">
