@@ -1,4 +1,4 @@
-import Header from "./components/header";
+import Header from "./components/Header";
 import { AnimatePresence } from "framer-motion";
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
