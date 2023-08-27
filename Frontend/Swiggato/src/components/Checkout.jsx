@@ -21,6 +21,11 @@ const Checkout = ({ total }) => {
     dispatch(placeOrder(token, total));
   };
 
+  if (success) {
+    window.location.href = "/orders";
+    localStorage.removeItem("cartItems");
+  }
+
   return (
     <div>
       <StripeCheckout

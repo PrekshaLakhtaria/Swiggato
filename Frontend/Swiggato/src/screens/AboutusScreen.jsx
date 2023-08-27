@@ -1,5 +1,8 @@
 import React from "react";
 
+import aboutus from "../assets/aboutus.jpg";
+import invertedcomma from "../assets/inverted_comma.png";
+
 const AboutusScreen = () => {
   return (
     <div className="bg-gradient-to-b from-white via-orange-100 to-white">
@@ -27,13 +30,10 @@ const AboutusScreen = () => {
             transparent and flexible earning opportunities.
           </p>
         </div>
-        <img
-          className="h-510 w-656 mx-10 rounded-b-full"
-          src="../src/assets/aboutus.jpg"
-        ></img>
+        <img className="h-510 w-656 mx-10 rounded-b-full" src={aboutus}></img>
       </div>
       <div className="flex flex-col bg-orange-400 p-12 text-justify mb-40">
-        <img src="../src/assets/inverted_comma.png" className="h-26 w-32"></img>
+        <img src={invertedcomma} className="h-26 w-32"></img>
         <p className="text-white text-4xl font-sans font-extralight mb-10 mt-5">
           Our mission is to elevate the quality of life for the urban consumer
           with unparalleled convenience. Convenience is what makes us tick. It's

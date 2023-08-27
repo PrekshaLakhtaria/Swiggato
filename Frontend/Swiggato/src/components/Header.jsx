@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header className="w-screen z-60 p-6 px-16">
       {/* for tablet and desktop */}
-      <div className="hidden md:flex w-full h-full items-center justify-between">
+      <div className="md:flex w-full h-full items-center justify-between">
         <div className="flex items-center">
           <a href="/">
             <p className="absolute z-20 top-16 font-sans font-bold text-3xl">
@@ -107,9 +107,6 @@ const Header = () => {
           )}
         </div>
       </div>
-
-      {/* for mobile */}
-      <div className="flex md:hidden bg-sky-500 w-full h-full p-4"></div>
     </header>
   );
 };
