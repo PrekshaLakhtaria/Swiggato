@@ -1,0 +1,7 @@
+{
+    "routes": [
+      { "src": "/menu", "dest": "./src/components/screens/MenuScreen.jsx" }
+      
+    ]
+  }
+  
